@@ -1,5 +1,5 @@
-# FootCube
-This is the original FootCube plugin, it is only being posted here for historical purposes.
+# pFootcube
+Plugin developed by FireRealms NetWork.
 
 # Project Libraries Required
 - Spigot 1.8.8
