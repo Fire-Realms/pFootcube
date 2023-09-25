@@ -1,11 +1,11 @@
-name: FootCube
+name: pFootcube
 version: 1.1
-description: Soccer/Football in MineCraft
-author: SmileyCraft
+description: Footblal in minecraft.
+author: czhixsy
 main: me.SmileyCraft.footcube.FootCube
 commands:
   cube:
-    description: spawns a ball, eh... cube
+    description: spawns a ball
   clearCubes:
     description: removes all cubes
   clearCube:
