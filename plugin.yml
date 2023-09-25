@@ -2,7 +2,7 @@ name: pFootcube
 version: 1.1
 description: Footblal in minecraft.
 author: czhixsy
-main: me.SmileyCraft.footcube.FootCube
+main: me.czhixsy.footcube.FootCube
 commands:
   cube:
     description: spawns a ball
