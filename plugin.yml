@@ -5,20 +5,20 @@ author: czhixsy
 main: me.czhixsy.footcube.FootCube
 commands:
   cube:
-    description: spawns a ball
+    description: Stvara loptu.
   clearCubes:
-    description: removes all cubes
+    description: Brise sve lopte.
   clearCube:
-    description: removes nearest cube
+    description: Brise najblizu loptu
   tc:
-    description: team-chat
+    description: Timski Cet
   footcube:
-    aliases: [fc]
-    description: main plugin command
+    aliases: [pfc]
+    description: Glavna komanda plugina.
   commandDisabler:
     aliases: [cd]
-    description: enable / disable commands in a match
+    description: Dozvoliti Onemoguciti komande tokom meca..
   spy:
-    description: enable / disable spying
+    description: Dozvoliti Onemoguciti Spijniranje
   g:
-    description: global ch
+    description: Globalni Cet
