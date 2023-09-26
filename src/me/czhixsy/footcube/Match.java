@@ -213,22 +213,22 @@ public class Match implements Listener
             this.organization.wins.put(p.getUniqueId().toString(), 0);
             this.organization.ties.put(p.getUniqueId().toString(), 0);
             this.organization.goals.put(p.getUniqueId().toString(), 0);
-        }
+        } 
         if (this.redPlayers.length < this.type && !b) {
             this.redPlayers = this.extendArray(this.redPlayers, p);
             this.isRed.put(p, true);
             p.teleport(this.red);
-            p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "Welcome to the match, you are on the red team");
+            p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.RED + "Dobrodosli u FUT utakmicu u crvenom ste timu!");
         }
         else {
             this.bluePlayers = this.extendArray(this.bluePlayers, p);
             this.isRed.put(p, false);
             p.teleport(this.blue);
-            p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "Welcome to the match, you are on the blue team");
+            p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.AQUA + "Dobrodosli u FUT utakmicu u plavom ste timu!");
         }
         if (this.bluePlayers.length >= this.type && this.redPlayers.length >= this.type) {
             this.phase = 2;
-            this.countdown = 30;
+            this.countdown = 15;
             this.tickToSec = 20;
             this.organization.matchStart(this.type);
             for (final Player player : this.isRed.keySet()) {
@@ -243,13 +243,13 @@ public class Match implements Listener
                     player.getInventory().setChestplate(this.blueChestPlate);
                     player.getInventory().setLeggings(this.blueLeggings);
                 }
-                player.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "There are enough players to start, " + "the match will start in 30 seconds. You now have time to discuss about your strategy.");
-                player.sendMessage(ChatColor.DARK_GREEN + "TIP: " + ChatColor.GREEN + "Choose someone to be goalkeeper.");
-                player.sendMessage(ChatColor.GREEN + "Use " + ChatColor.AQUA + "/tc [Message]" + ChatColor.GREEN + " for teamchat.");
+                player.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "Imamo dovoljno igraca da pocnemo utakmicu!, Utakmica ce poceti za 15 sekundi! " );
+                player.sendMessage(ChatColor.DARK_GREEN + "TIP: " + ChatColor.AQUA + "FUT|" + ChatColor.BLUE + "Izaberite nekog da bude golman.");
+                player.sendMessage(ChatColor.GREEN + "Use " + ChatColor.AQUA + "/tc [Poruka]" + ChatColor.GREEN + " za timski cet");
             }
         }
         else {
-            p.sendMessage(ChatColor.GREEN + "Use " + ChatColor.AQUA + "/fc leave" + ChatColor.GREEN + " to leave this room");
+            p.sendMessage(ChatColor.GREEN + "Koristi " + ChatColor.AQUA + "/fc leave" + ChatColor.GREEN + " da izadjes iz utakmice!");
         }
     }
     
@@ -270,13 +270,13 @@ public class Match implements Listener
             this.redPlayers = this.extendArray(this.redPlayers, p);
             this.isRed.put(p, true);
             p.teleport(this.red);
-            p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "Welcome to the match, you are on the red team");
+            p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.RED + "Dobrodosli u FUT utakmicu u crvenom ste timu!");
         }
         else {
             this.bluePlayers = this.extendArray(this.bluePlayers, p);
             this.isRed.put(p, false);
             p.teleport(this.blue);
-            p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "Welcome to the match, you are on the blue team");
+            p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.AQUA + "Dobrodosli u FUT utakmicu u plavom ste timu!");
         }
         p.getInventory().setItemInHand(this.sugar);
         if (this.isRed.get(p)) {
@@ -326,8 +326,8 @@ public class Match implements Listener
         if (this.redPlayers.length + this.bluePlayers.length > 2 * this.type - 2 || (this.teams >= 2 && this.type == 3)) {
             return false;
         }
-        p0.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "You succesfully teamed with " + p1.getName());
-        p1.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "You succesfully teamed with " + p0.getName());
+        p0.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "Uspesno si se timao sa " + p1.getName());
+        p1.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "Uspesno si se timao sa " + p0.getName());
         this.teamers.add(p0);
         this.teamers.add(p1);
         ++this.teams;
@@ -349,7 +349,7 @@ public class Match implements Listener
                     this.redPlayers = this.extendArray(this.redPlayers, p2);
                     this.isRed.put(p2, true);
                     p2.teleport(this.red);
-                    p2.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "You switched teams so that " + p0.getName() + " and " + p1.getName() + " could team");
+                    p2.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "Promenio si timove " + p0.getName() + " i " + p1.getName() + " mozes da se timas");
                     this.join(p0, true);
                     this.join(p1, true);
                     rare = false;
@@ -365,7 +365,7 @@ public class Match implements Listener
                         this.bluePlayers = this.extendArray(this.bluePlayers, p2);
                         this.isRed.put(p2, true);
                         p2.teleport(this.blue);
-                        p2.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "You switched teams so that " + p0.getName() + " and " + p1.getName() + " could team");
+                        p2.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "Promenio si timove " + p0.getName() + " i " + p1.getName() + " mozes da se timas");
                         this.join(p0, false);
                         this.join(p1, false);
                         break;
@@ -404,7 +404,7 @@ public class Match implements Listener
             if (this.countdown <= 0) {
                 String message;
                 if (this.phase == 2) {
-                    message = String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "The match has started, good luck";
+                    message = String.valueOf(this.organization.pluginString) + ChatColor.AQUA + "FUT |" + ChatColor.AQUA + "Mec je poceo, srecno..";
                     this.startTime = System.currentTimeMillis();
                     this.redGoals.setScore(0);
                     this.blueGoals.setScore(0);
@@ -414,7 +414,7 @@ public class Match implements Listener
                     }
                 }
                 else {
-                    message = String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "The match will now proceed";
+                    message = String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "Mec ce se nastaviti!";
                 }
                 this.phase = 3;
                 this.cube = this.plugin.spawnCube(this.mid);
@@ -456,7 +456,7 @@ public class Match implements Listener
                 p.teleport(p.getWorld().getSpawnLocation());
                 this.organization.clearInventory(p);
                 if (this.scoreRed > this.scoreBlue) {
-                    p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "Time's up! The red team has won");
+                    p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "");
                     if (this.isRed.get(p) && !this.takePlace.contains(p)) {
                         this.organization.wins.rise(uuid);
                         this.organization.winStreak.rise(uuid);
@@ -464,19 +464,19 @@ public class Match implements Listener
                             this.organization.bestWinStreak.put(uuid, this.organization.winStreak.get(uuid));
                         }
                         this.organization.economy.depositPlayer(p.getName(), 15.0);
-                        p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "You got 15 credits for winning");
+                        p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.AQUA + "FUT |" + ChatColor.GREEN + "Dobijo si 15 Kredita za pobedu!"
                         if (this.organization.winStreak.get(uuid) % 5 != 0) {
                             continue;
                         }
                         this.organization.economy.depositPlayer(p.getName(), 100.0);
-                        p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GOLD + ChatColor.BOLD + "You get 100 credits bonus for winning " + this.organization.winStreak.get(uuid) + " times in a row!!!");
+                        p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GOLD + ChatColor.BOLD + "Dobijo si 100 kredita zbog" + this.organization.winStreak.get(uuid) + " pobeda u rovu!");
                     }
                     else {
                         this.organization.winStreak.put(uuid.toString(), 0);
                     }
                 }
                 else if (this.scoreRed < this.scoreBlue) {
-                    p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "Time's up! The blue team has won");
+                    p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.AQUA + "FUT |" + ChatColor.RED + "Mec je zavrsen.");
                     if (!this.isRed.get(p) && !this.takePlace.contains(p)) {
                         this.organization.wins.rise(uuid.toString());
                         this.organization.winStreak.rise(uuid.toString());
@@ -484,26 +484,26 @@ public class Match implements Listener
                             this.organization.bestWinStreak.put(uuid, this.organization.winStreak.get(uuid));
                         }
                         this.organization.economy.depositPlayer(p.getName(), 15.0);
-                        p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "You got 15 credits for winning");
+                        p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.AQUA + "FUT |" + ChatColor.GREEN + "Dobijo si 15 Kredita za pobedu!");
                         if (this.organization.winStreak.get(uuid) % 5 != 0) {
                             continue;
                         }
                         this.organization.economy.depositPlayer(p.getName(), 100.0);
-                        p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GOLD + ChatColor.BOLD + "You get 100 credits bonus for winning " + this.organization.winStreak.get(uuid) + " times in a row!!!");
+                        p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GOLD + ChatColor.BOLD + "Dobijo si 100 kredita zbog " + this.organization.winStreak.get(uuid) + " pobeda u rovu!");
                     }
                     else {
                         this.organization.winStreak.put(uuid, 0);
                     }
                 }
                 else {
-                    p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "Time's up! The game is tied");
+                    p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.RED + "Utakmica je izjednacena.");
                     if (this.takePlace.contains(p)) {
                         continue;
                     }
                     this.organization.ties.rise(uuid);
                     this.organization.winStreak.put(uuid, 0);
                     this.organization.economy.depositPlayer(p.getName(), 5.0);
-                    p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "You got 5 credits for ending tied");
+                    p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "Dobijo si 5 kredita zbog izjednacene tekme..");
                 }
             }
             this.phase = 1;
@@ -556,15 +556,15 @@ public class Match implements Listener
             else {
                 this.goals.put(scorer, 1);
             }
-            scorer.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "You got 10 credits for scoring");
+            scorer.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "Dobijo si 10 kredita zbog gola koji si postigao, Bravo!");
             if (this.goals.get(scorer) == 3) {
-                scorer.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GOLD + ChatColor.BOLD + "You get 100 credits bonus for making a hat-trick");
+                scorer.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GOLD + ChatColor.BOLD + "Dobijo si 100 kredita zbog postizanja hat trika!");
                 this.organization.economy.depositPlayer(scorer.getName(), 100.0);
             }
         }
         for (final Player p : this.isRed.keySet()) {
             final String uuid = p.getUniqueId().toString();
-            p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GOLD + ChatColor.BOLD + "GOAL!!! " + ChatColor.RESET + ChatColor.GREEN + scorer.getName() + " scored a goal for the " + team + " team");
+            p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GOLD + ChatColor.BOLD + "GOOOL! " + ChatColor.RESET + ChatColor.GREEN + scorer.getName() + " Je postigao gol za " + team + " team");
             if (this.scoreRed >= 3 || this.scoreBlue >= 3) {
                 this.organization.endMatch(p);
                 p.setScoreboard(this.sbm.getNewScoreboard());
@@ -575,23 +575,23 @@ public class Match implements Listener
                         this.organization.bestWinStreak.put(uuid, this.organization.winStreak.get(uuid));
                     }
                     this.organization.economy.depositPlayer(p.getName(), 15.0);
-                    p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GREEN + "You got 15 credits for winning");
+                    p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.AQUA + "FUT |" + ChatColor.GREEN + "Dobijo si 15 Kredita za pobedu!");
                     if (this.organization.winStreak.get(uuid) % 5 == 0) {
                         this.organization.economy.depositPlayer(p.getName(), 100.0);
-                        p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GOLD + ChatColor.BOLD + "You get 100 credits bonus for winning " + this.organization.winStreak.get(uuid) + " times in a row!!!");
+                        p.sendMessage(String.valueOf(this.organization.pluginString) + ChatColor.GOLD + ChatColor.BOLD + "Dobijo si 100 kredita bonus za  " + this.organization.winStreak.get(uuid) + " pobede u rovu! ");
                     }
                 }
                 else if (!this.takePlace.contains(p)) {
                     this.organization.winStreak.put(uuid, 0);
                 }
-                p.sendMessage(ChatColor.GREEN + "The " + team + " team has won the match");
+                p.sendMessage(ChatColor.GREEN + "Tim " + team + " je pobedio!");
                 p.teleport(p.getWorld().getSpawnLocation());
                 this.organization.clearInventory(p);
             }
             else {
                 p.setLevel(10);
-                p.sendMessage(ChatColor.GREEN + "It is now " + this.scoreRed + "-" + this.scoreBlue + " Red-Blue");
-                p.sendMessage(ChatColor.GREEN + "The match will continue in 10 seconds");
+                p.sendMessage(ChatColor.GREEN + "To je to  " + this.scoreRed + "-" + this.scoreBlue + " Crveni-Plavi");
+                p.sendMessage(ChatColor.GREEN + "Mec ce se nastaviti za 10 Sekundi!");
             }
         }
         if (this.scoreRed >= 3 || this.scoreBlue >= 3) {
