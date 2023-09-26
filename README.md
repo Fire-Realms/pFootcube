@@ -1,6 +1,6 @@
 # pFootcube
 Plugin developed by FireRealms NetWork.
 
-# Project Libraries Required
-- Spigot 1.8.8
-- Vault
+# Informacije
+
+Svako ne pitano koriscenje plugin ce dovesti do automatskog blacklista.
