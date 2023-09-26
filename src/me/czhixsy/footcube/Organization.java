@@ -1,5 +1,5 @@
 
-package me.SmileyCraft.footcube;
+package me.czhixsy.footcube;
 
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.inventory.InventoryHolder;
