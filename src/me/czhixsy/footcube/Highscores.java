@@ -1,5 +1,5 @@
 
-package me.SmileyCraft.footcube;
+package me.czhixsy.footcube;
 
 import java.util.Iterator;
 import org.bukkit.plugin.Plugin;
