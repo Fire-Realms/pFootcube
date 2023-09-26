@@ -1,5 +1,5 @@
 
-package me.SmileyCraft.footcube;
+package me.czhixsy.footcube;
 
 import org.bukkit.Sound;
 import org.bukkit.util.Vector;
