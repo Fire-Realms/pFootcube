@@ -1,5 +1,5 @@
 
-package me.SmileyCraft.footcube;
+package me.czhixsy.footcube;
 
 import java.io.ObjectInputStream;
 import java.io.InputStream;
