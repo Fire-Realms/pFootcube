@@ -52,7 +52,7 @@ public class DisableCommands implements Listener
                         p.sendMessage(ChatColor.AQUA + "/cd add [command]");
                     }
                     else if (this.commands.contains(args[1])) {
-                        p.sendMessage(ChatColor.RED + "This command was already added");
+                        p.sendMessage(ChatColor.RED + "Ova komanda je vec dodana!");
                     }
                     else {
                         this.commands.add(args[1]);
@@ -62,7 +62,7 @@ public class DisableCommands implements Listener
                         }
                         cfg.set("enabledCommands", (Object)cfgString);
                         this.plugin.saveConfig();
-                        p.sendMessage(ChatColor.GREEN + "You succesfully added command /" + args[1] + " to the list of disabled commands");
+                        p.sendMessage(ChatColor.GREEN + "Ti si uspesno dodao komandu na listu /" + args[1] + "ugasenih komandi!");
                     }
                 }
                 else if (args[0].equalsIgnoreCase("remove")) {
@@ -77,14 +77,14 @@ public class DisableCommands implements Listener
                         }
                         cfg.set("enabledCommands", (Object)cfgString);
                         this.plugin.saveConfig();
-                        p.sendMessage(ChatColor.GREEN + "You succesfully removed command /" + args[1] + " from the list of disabled commands");
+                        p.sendMessage(ChatColor.GREEN + "Uspesno si pomerio komandu sa  /" + args[1] + "liste ugasenih komandi!");
                     }
                     else {
-                        p.sendMessage(ChatColor.RED + "This command wasn't even added");
+                        p.sendMessage(ChatColor.RED + "Ova komanda nije dodana");
                     }
                 }
                 else if (args[0].equalsIgnoreCase("list")) {
-                    p.sendMessage(ChatColor.GOLD + "List of disabled commands:");
+                    p.sendMessage(ChatColor.GOLD + "Lista ugasenih komandi:");
                     for (final String s2 : this.commands) {
                         p.sendMessage(ChatColor.GRAY + s2);
                     }
@@ -106,7 +106,7 @@ public class DisableCommands implements Listener
                 }
             }
             if (!allowed) {
-                p.sendMessage(ChatColor.RED + "You cannot use this command during a match");
+                p.sendMessage(ChatColor.RED + "Nemozete koristiti komande tokom utakmice!");
                 e.setCancelled(true);
             }
         }
