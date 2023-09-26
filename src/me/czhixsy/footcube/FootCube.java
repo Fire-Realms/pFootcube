@@ -1,6 +1,6 @@
 
 
-package me.SmileyCraft.footcube;
+package me.czhixsy.footcube;
 
 import org.bukkit.EntityEffect;
 import org.bukkit.potion.PotionEffect;
