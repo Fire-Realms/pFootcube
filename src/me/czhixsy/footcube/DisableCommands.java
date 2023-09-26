@@ -1,7 +1,7 @@
 
 // 
 
-package me.SmileyCraft.footcube;
+package me.czhixsy.footcube;
 
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.EventHandler;
